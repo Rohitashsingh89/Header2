@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time and Date</title>
+    <style>
+        body{
+            /* background-color: rgb(32, 16, 47); */
+            /* background-image: linear-gradient(to left, rgb(32, 16, 47), rgb(8, 8, 56)); */
+            background-color: rgb(54, 54, 123);
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        .row {
+            display: flex;
+            /* position: absolute;
+            top: 40%;
+            left: 40%; */
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+        }
+        .showDate {
+            width: 150px;
+            background-color: white;
+            height: 200px;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .showDate h1 { 
+            font-size: 58px;
+            font-weight: 700;
+        }
+        .showDate h1,p {
+            margin: 1px;
+        }
+        .showDate p {
+            font-size: 20px;
+        }
+        .showMonth p {
+            margin: 2px;
+            font-size: 20px;
+            color: white;
+        }
+        .showMonth {
+            width: 100px;
+            background-color: brown;
+            height: 200px;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        @media screen and (max-width: 350px) {
+            .row {
+                /* width: 100%; */
+                display: block;
+                margin: 10px;
+            }
+            .showDate {
+                width: 150px;
+            }
+            .showMonth {
+                width: 150px;
+            }
+        }
+        </style>
+</head>
+<body>
+    <!-- <div class="container"> -->
+        <div class="row">
+            <div class="showDate">
+                <h1 id="showDate">01</h1>
+                <p id="showDay">Sunday</p>
+            </div>
+            <div class="showMonth" >
+                <p id="showMonth">January</p>
+                <p id="showYear">2023</p>
+            </div>
+        </div>
+    <!-- </div> -->
+    <script>
+        const showDate = document.getElementById('showDate');
+        const showDay = document.getElementById('showDay');
+        const showMonth = document.getElementById('showMonth');
+        const showYear = document.getElementById('showYear');
+        const date = new Date();
+        const weekday  = [
+            'Sunday', "Monday",'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+        ];
+        showDate.innerText = date.getDate();
+        showDay.innerText = weekday[date.getDay()];
+        showMonth.innerText = date.toLocaleString('default', {month: 'long'});
+        showYear.innerText = date.getFullYear();
+    </script>
+</body>
+</html>
